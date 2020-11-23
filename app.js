@@ -51,8 +51,14 @@ bot.on('message', async(message) => {
             message.channel.send(data)
             break;
         case '8ball':
-            var question = message.content.substring(prefix.length + args[0].length);
-            data = await commands.get8Ball(question);
+            var question = message.content.substring(prefix.length + args[0].length).trim();
+            
+            if(question){
+                data = await commands.get8Ball(question);
+            }
+            else {
+                data = "You didn't ask me a question....";   
+            }
             message.channel.send(data);
             break;
     }
