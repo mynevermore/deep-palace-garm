@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const roller = require('./modules/roller');
 const helper = require('./modules/help');
-const { Commands } = require("discordjsbot-commands");
+const { Commands } = require('./modules/commands');
 const commands = new Commands();
 const prefix = "!";
 
@@ -35,29 +35,24 @@ bot.on('message', async(message) => {
             }
             break;
         case 'meme':
-            data = await commands.getMeme();
-            console.log(data);
-            message.channel.send(data);
+            data = await random.getMeme();
+            message.channel.send(data)
             break;
         case 'quote':
-            data = await commands.getQuote();
-            console.log(data);
-            message.channel.send(data);
-            break;
-        case 'neko':
-            data = await commands.getNeko();
-            console.log(data);
-            message.channel.send(data);
-            break;
-        case 'joke':
-            data = await commands.getJoke();
-            console.log(data);
-            message.channel.send(data);
+            data = await random.getQuote();
+            message.channel.send(data)
             break;
         case 'fact':
-            data = await commands.getFact();
-            console.log(data);
-            message.channel.send(data);
+            data = await random.getFact();
+            message.channel.send(data)
+            break;
+        case 'joke':
+            data = await random.getJoke();
+            message.channel.send(data)
+            break;
+        case '8ball':
+            data = await random.get8Ball();
+            message.channel.send(data)
             break;
     }
 });
