@@ -90,7 +90,7 @@ class Commands {
         embed: {
             color: "RANDOM",
             title: "The answer to your question " + question + " is...",
-            description: data;
+            description: data
         }
         };
 
