@@ -2,6 +2,8 @@
 const Discord = require('discord.js');
 const roller = require('./modules/roller');
 const helper = require('./modules/help');
+const { Commands } = require("discordjsbot-commands");
+const commands = new Commands();
 const prefix = "!";
 
 const bot = new Discord.Client();
@@ -10,7 +12,7 @@ bot.on('ready', () => {
     console.log("The bot is online!");
 });
 
-bot.on('message', message => {
+bot.on('message', async(message) => {
     let args = message.content.substring(prefix.length).split(' ');
 
     switch (args[0]) {
@@ -31,18 +33,27 @@ bot.on('message', message => {
                 message.channel.send({embed: embed.embed});
             }
             break;
-        //case 'events':
-            //break;
-        //case 'calc':
-            //break;
-        //case 'timezone':
-            //break;
-        //case '8ball':
-            //break;
-        //case 'workshop':
-            //break;
+        case 'meme':
+            let data = await random.getMeme();
+            message.channel.send(data);
+            break;
+        case 'quote':
+            let data = await random.getQuote();
+            message.channel.send(data);
+            break;
+        case 'neko':
+            let data = await random.getNeko();
+            message.channel.send(data);
+            break;
+        case 'joke':
+            let data = await random.getJoke();
+            message.channel.send(data);
+            break;
+        case 'fact':
+            let data = await random.getFact();
+            message.channel.send(data);
+            break;
     }
 });
 
 bot.login(process.env.BOT_TOKEN);
-
