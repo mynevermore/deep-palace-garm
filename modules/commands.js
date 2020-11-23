@@ -62,7 +62,7 @@ class Commands {
     async getJoke() {
         const main = await fetch("https://icanhazdadjoke.com/", headers: {
                 'Accept': 'application/json'
-            },);
+            });
         console.log(main);
         const data = await main.json();
         console.log(data);
@@ -89,8 +89,16 @@ class Commands {
         let content = {
         embed: {
             color: "RANDOM",
-            title: 'The answer to your question "' + question + '" is...',
-            description: data
+            title: 'The Magic 8 Ball has the answer',
+            "fields": [
+                  {
+                    "name": "Your Question",
+                    "value": question
+                  },
+                  {
+                    "name": "Your Answer",
+                    "value": data
+                  },
         }
         };
 
