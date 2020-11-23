@@ -35,24 +35,24 @@ bot.on('message', async(message) => {
             }
             break;
         //case 'meme':
-            //data = await random.getMeme();
+            //data = await commands.getMeme();
             //message.channel.send(data)
             //break;
         //case 'quote':
-            //data = await random.getQuote();
+            //data = await commands.getQuote();
             //message.channel.send(data)
             //break;
         //case 'fact':
-            //data = await random.getFact();
+            //data = await commands.getFact();
             //message.channel.send(data)
             //break;
         case 'joke':
-            data = await random.getJoke();
+            data = await commands.getJoke();
             message.channel.send(data)
             break;
         case '8ball':
             var question = message.content.substring(prefix.length + args[0].length);
-            data = await random.get8Ball(question);
+            data = await commands.get8Ball(question);
             message.channel.send(data);
             break;
     }
