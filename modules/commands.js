@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const fetch = require("node-fetch");
+const { Headers } = require('node-fetch');
 
 class Commands {
     async getMeme() {
@@ -60,9 +61,11 @@ class Commands {
     }
 
     async getJoke() {
-        var header = {
+        var getHeader = {
             Accept: 'application/json'
         }
+        
+        const headers = new Headers(getHeader);
         
         const main = await fetch("https://icanhazdadjoke.com/", method: 'GET', headers: header);
         console.log(main);
