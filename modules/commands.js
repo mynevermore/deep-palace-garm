@@ -60,7 +60,7 @@ class Commands {
     }
 
     async getJoke() {
-        const main = await fetch("https://icanhazdadjoke.com/");
+        const main = await fetch("https://icanhazdadjoke.com/", {Accept: 'application/json'});
         console.log(main);
         const data = await main.json();
         console.log(data);
