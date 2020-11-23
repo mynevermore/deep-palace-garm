@@ -98,4 +98,4 @@ class Commands {
     }
 }
 
-module.exports = Commands;
+exports.Commands = Commands;
