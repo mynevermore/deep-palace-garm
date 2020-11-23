@@ -14,6 +14,7 @@ bot.on('ready', () => {
 
 bot.on('message', async(message) => {
     let args = message.content.substring(prefix.length).split(' ');
+    let data = "";
 
     switch (args[0]) {
         case 'garm-help':
@@ -34,23 +35,23 @@ bot.on('message', async(message) => {
             }
             break;
         case 'meme':
-            let data = await random.getMeme();
+            data = await random.getMeme();
             message.channel.send(data);
             break;
         case 'quote':
-            let data = await random.getQuote();
+            data = await random.getQuote();
             message.channel.send(data);
             break;
         case 'neko':
-            let data = await random.getNeko();
+            data = await random.getNeko();
             message.channel.send(data);
             break;
         case 'joke':
-            let data = await random.getJoke();
+            data = await random.getJoke();
             message.channel.send(data);
             break;
         case 'fact':
-            let data = await random.getFact();
+            data = await random.getFact();
             message.channel.send(data);
             break;
     }
