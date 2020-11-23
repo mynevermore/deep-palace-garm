@@ -35,23 +35,23 @@ bot.on('message', message => {
             }
             break;
         case 'meme':
-            data = random.getMeme();
+            data = commands.getMeme();
             message.channel.send(data);
             break;
         case 'quote':
-            data = random.getQuote();
+            data = commands.getQuote();
             message.channel.send(data);
             break;
         case 'neko':
-            data = random.getNeko();
+            data = commands.getNeko();
             message.channel.send(data);
             break;
         case 'joke':
-            data = random.getJoke();
+            data = commands.getJoke();
             message.channel.send(data);
             break;
         case 'fact':
-            data = random.getFact();
+            data = commands.getFact();
             message.channel.send(data);
             break;
     }
