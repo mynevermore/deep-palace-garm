@@ -12,7 +12,7 @@ bot.on('ready', () => {
     console.log("The bot is online!");
 });
 
-bot.on('message', async(message) => {
+bot.on('message', message => {
     let args = message.content.substring(prefix.length).split(' ');
     let data = "";
 
@@ -35,23 +35,23 @@ bot.on('message', async(message) => {
             }
             break;
         case 'meme':
-            data = await random.getMeme();
+            data = random.getMeme();
             message.channel.send(data);
             break;
         case 'quote':
-            data = await random.getQuote();
+            data = random.getQuote();
             message.channel.send(data);
             break;
         case 'neko':
-            data = await random.getNeko();
+            data = random.getNeko();
             message.channel.send(data);
             break;
         case 'joke':
-            data = await random.getJoke();
+            data = random.getJoke();
             message.channel.send(data);
             break;
         case 'fact':
-            data = await random.getFact();
+            data = random.getFact();
             message.channel.send(data);
             break;
     }
