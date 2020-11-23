@@ -89,7 +89,7 @@ class Commands {
         let content = {
         embed: {
             color: "RANDOM",
-            title: "The answer to your question " + question + " is...",
+            title: 'The answer to your question "' + question + '" is...',
             description: data
         }
         };
