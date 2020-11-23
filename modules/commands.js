@@ -101,7 +101,6 @@ class Commands {
                     "name": "Your Answer",
                     "value": data
                   },
-        }
         };
 
         return content;
