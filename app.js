@@ -34,27 +34,29 @@ bot.on('message', async(message) => {
                 message.channel.send({embed: embed.embed});
             }
             break;
-        case 'meme':
-            data = await random.getMeme();
-            message.channel.send(data)
-            break;
-        case 'quote':
-            data = await random.getQuote();
-            message.channel.send(data)
-            break;
-        case 'fact':
-            data = await random.getFact();
-            message.channel.send(data)
-            break;
+        //case 'meme':
+            //data = await random.getMeme();
+            //message.channel.send(data)
+            //break;
+        //case 'quote':
+            //data = await random.getQuote();
+            //message.channel.send(data)
+            //break;
+        //case 'fact':
+            //data = await random.getFact();
+            //message.channel.send(data)
+            //break;
         case 'joke':
             data = await random.getJoke();
             message.channel.send(data)
             break;
         case '8ball':
-            data = await random.get8Ball();
-            message.channel.send(data)
+            var question = message.content.substring(prefix.length + args[0].length);
+            data = await random.get8Ball(question);
+            message.channel.send(data);
             break;
     }
 });
 
 bot.login(process.env.BOT_TOKEN);
+
