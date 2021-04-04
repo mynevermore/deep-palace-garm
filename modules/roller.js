@@ -10,6 +10,7 @@ function roll(rolled, author){
         var diceRoll = [];
 
         for(var i = 0; i < diceNum; i++){
+            randomRoll();
             diceRoll.push(Math.ceil(Math.random() * sides));
         }
         var response = {
@@ -30,6 +31,16 @@ function roll(rolled, author){
     }  
 
     return response;
+}
+
+function randomRoll(){
+    var rolls = Math.ceil(Math.random() * 5);
+    
+    for(var j = 0; j < rolls; j++){
+        Math.ceil(Math.random());   
+    }
+
+    return;
 }
 
 exports.roll = roll;
