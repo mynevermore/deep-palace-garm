@@ -2,6 +2,7 @@
 const Discord = require('discord.js');
 const roller = require('./modules/roller');
 const helper = require('./modules/help');
+const automate = require('./modules/automate');
 const { Commands } = require('./modules/commands');
 const commands = new Commands();
 const prefix = "!";
@@ -10,6 +11,7 @@ const bot = new Discord.Client();
 
 bot.on('ready', () => {
     console.log("The bot is online!");
+    automate.automate();
 });
 
 bot.on('message', async(message) => {
