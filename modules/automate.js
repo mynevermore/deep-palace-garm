@@ -17,7 +17,7 @@ function automate(){
   
   schedule.scheduleJob(rule, function(){
     console.log('Reminder for lottery ', os.EOL, 
-    'Ends Sunday at 5pm');
+    'Ends Sunday at 5pm @Mimic');
   });
 }
 
