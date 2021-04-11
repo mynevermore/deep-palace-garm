@@ -1,24 +1,33 @@
 const schedule = require('node-schedule');
 const Discord = require('discord.js');
-const os = require('os');
-
 
 function automate(){
   const rule = new schedule.RecurrenceRule();
-  rule.dayOfWeek = [0, new schedule.Range(4, 0)];
+  rule.dayOfWeek = [0, new schedule.Range(0, 4)];
   rule.hour = 12;
   rule.tz = 'Etc/UTC';
+  rule.channel = guild;
   
-  new Discord.Message(client, data, channel)
-  {
-      _channel = lottery;
-      _data = data;
-  }
-  
-  schedule.scheduleJob(rule, function(){
-    console.log('Reminder for lottery ', os.EOL, 
-    'Ends Sunday at 5pm @Mimic');
-  });
+  let guild = client.guilds.find((guild) => guild.id === '716561677327401002');
+
+    if (!guild) {
+      // Guild can't be found
+      return;
+    }
+
+    let role = guild.roles.find((role) => role.name === '716857241965428797');
+
+    if (!role) {
+      // Role can't be found
+      return;
+    }
+    else{
+      schedule.scheduleJob(rule, function(){
+        client.on('message', message => {
+          client.channels.cache.get(role).send('Reminder for lottery \n Ends Sunday at 5pm @Mimic');
+      })
+      });
+    }
 }
 
 exports.automate = automate;
